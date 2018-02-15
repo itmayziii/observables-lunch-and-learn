@@ -35,7 +35,7 @@ export class TypeAhead {
 
     private _addClickEventToButtons() {
         const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('button');
-        buttons.forEach((button) => {
+        buttons.forEach((button: HTMLButtonElement) => {
             button.addEventListener('click', (event: any) => {
                 this.typeAheadEl.value = event.currentTarget.innerHTML;
                 this.typeAheadOptionEl.innerHTML = '';
