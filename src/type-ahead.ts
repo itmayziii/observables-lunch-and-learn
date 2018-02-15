@@ -45,7 +45,7 @@ export class TypeAhead {
 
     private _listenToTypeAheadChange() {
         const typeAhead$: Observable<KeyboardEvent> = Observable.fromEvent(this.typeAheadEl, 'keyup');
-        const debounce = debounceTime(500);
+        const debounce = debounceTime(300);
 
         this.typeAheadSubscription = typeAhead$
             .let(debounce)
