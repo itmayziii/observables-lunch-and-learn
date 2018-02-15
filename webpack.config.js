@@ -2,11 +2,12 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const browserSync = new BrowserSyncPlugin(
+const browserSyncPlugin = new BrowserSyncPlugin(
     {
         host: 'localhost',
-        port: 3000,
-        proxy: 'localhost:8080'
+        port: 8051,
+        proxy: '127.0.0.1:8050',
+        open: false
     }
 );
 
@@ -43,7 +44,11 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: [".ts", ".js"]
+    },
     plugins: [
-        htmlPlugin
+        htmlPlugin,
+        browserSyncPlugin
     ]
 };
