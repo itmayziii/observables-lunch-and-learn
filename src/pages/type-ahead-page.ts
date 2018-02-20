@@ -3,17 +3,45 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/let';
 import { debounceTime } from 'rxjs/operators';
 import { ISubscription } from 'rxjs/Subscription';
-import { CityService } from "./city-service";
+import { CityService } from "../city-service";
 
-export class TypeAhead {
+export class TypeAheadPage {
     private typeAheadEl: HTMLInputElement;
     private typeAheadOptionEl: HTMLElement;
     private typeAheadSubscription: ISubscription;
+    private template = `
+<div class="row justify-content-center">
+
+    <div class="col-4">
+
+        <form novalidate>
+            <div class="form-group">
+                <label for="ohio-city">City in Ohio</label>
+                <input type="text" class="form-control" id="ohio-city" placeholder="Start typing..." data-type-ahead="cities">
+            </div>
+        </form>
+
+    </div>
+</div>
+    
+<div class="row justify-content-center">
+
+    <div class="col-4">
+        <div class="row">
+        
+        <div class="list-group col-12" data-type-ahead-options="cities"></div>
+        
+        </div>
+    </div>
+
+</div>
+`;
 
     public constructor(private cityService: CityService) {
     }
 
     public initialize(): void {
+        const innerHtml = document.querySelector('[data-root]').innerHTML = this.template;
         this._findTypeAheadEl();
         this._listenToTypeAheadChange();
     }
@@ -21,7 +49,7 @@ export class TypeAhead {
     private _findTypeAheadEl() {
         const typeAheadEl: HTMLElement = document.querySelector('[data-type-ahead]');
         if (!typeAheadEl) {
-            throw new Error('TypeAhead could not find input field elemtn');
+            throw new Error('TypeAhead could not find input field element');
         }
         this.typeAheadEl = <HTMLInputElement> typeAheadEl;
 

@@ -3,7 +3,8 @@ services:
   web:
     image: nginx:latest
     volumes:
-     - ./public:/usr/share/nginx/html
+      - ./:/site
+      - ./docker-config/nginx/site.conf:/etc/nginx/conf.d/default.conf
     ports:
      - "8050:80"
     environment:

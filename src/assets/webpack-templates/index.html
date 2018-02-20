@@ -4,36 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<body class="page container-fluid">
+<body class="container-fluid">
 
-<div class="row justify-content-center">
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+        <a class="nav-link" href="" data-link="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-link="/type-ahead">Type Ahead</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-link="/fun-with-data">Fun With Data</a>
+    </li>
+</ul>
 
-    <div class="col-4">
-
-        <form novalidate>
-            <div class="form-group">
-                <label for="ohio-city">City in Ohio</label>
-                <input type="text" class="form-control" id="ohio-city" placeholder="Start typing..." data-type-ahead="cities">
-            </div>
-        </form>
-
-    </div>
-
-</div>
-
-<div class="row justify-content-center">
-
-    <div class="col-4">
-        <div class="row">
-
-            <div class="list-group col-12" data-type-ahead-options="cities">
-
-            </div>
-
-        </div>
-    </div>
-
-</div>
+<div data-root class="container-fluid"></div>
 
 
 </body>
